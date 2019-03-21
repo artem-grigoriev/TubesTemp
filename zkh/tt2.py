@@ -20,18 +20,20 @@ while 1:
     if (len(data) == 4) and (data[0] != 'Kvantorium-33'):
         id = data[1]
         id = id[:-1]
-        temp = data[len(data) - 1]
+        idcheck = id.split("")
+        if(idcheck[0] != '9') and (idcheck[1] != 'B'):
+            temp = data[len(data) - 1]
 
-        add_sensor = ("INSERT INTO TubesTemp"
-                        "(date_add, temp, id)"
-                        "VALUES (%s, %s, %s)")
-        data_sensor = (time.time(), temp, id)
+            add_sensor = ("INSERT INTO TubesTemp"
+                            "(date_add, temp, id)"
+                            "VALUES (%s, %s, %s)")
+            data_sensor = (time.time(), temp, id)
 
-        # Insert sensor
-        cursor.execute(add_sensor, data_sensor)
-        emp_no = cursor.lastrowid
-        # Make sure data is committed to the database
-        cnx.commit()
+            # Insert sensor
+            cursor.execute(add_sensor, data_sensor)
+            emp_no = cursor.lastrowid
+            # Make sure data is committed to the database
+            cnx.commit()
 
-        cursor.close()
-        cnx.close()
+            cursor.close()
+            cnx.close()
