@@ -20,8 +20,8 @@ while 1:
         id = data[1]
         id = id[:-1]
         idcheck = id.split()
+        print(idcheck)
         if(idcheck[0] == '2') and (idcheck[1] == '8'):
-            print(data)
             temp = data[len(data) - 1]
 
             add_sensor = ("INSERT INTO TubesTemp"
