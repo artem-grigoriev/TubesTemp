@@ -19,9 +19,9 @@ while 1:
     if (len(data) == 4) and (data[0] != 'Kvantorium-33'):
         id = data[1]
         id = id[:-1]
-        idcheck = id.split()
+        idcheck = id[:0]
         print(idcheck)
-        if(idcheck[0] == '2') and (idcheck[1] == '8'):
+        if idcheck == '2':
             temp = data[len(data) - 1]
 
             add_sensor = ("INSERT INTO TubesTemp"
