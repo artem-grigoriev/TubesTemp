@@ -13,15 +13,14 @@ while 1:
                                   host='127.0.0.1')
     cursor = cnx.cursor()
     ser = serial.Serial('/dev/ttyUSB0', 9600, timeout = 3)
-
     line = ser.readline().decode("utf-8").strip()
+    print(">> ", line)
     data = line.split(" ")
     if (len(data) == 4) and (data[0] != 'Kvantorium-33'):
         id = data[1]
         id = id[:-1]
         idcheck = id.split()
         if(idcheck[0] == '2') and (idcheck[1] == '8'):
-            print(">> ", line)
             temp = data[len(data) - 1]
 
             add_sensor = ("INSERT INTO TubesTemp"
