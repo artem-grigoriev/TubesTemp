@@ -36,3 +36,5 @@ while 1:
 
             cursor.close()
             cnx.close()
+        else:
+            print('\n')
