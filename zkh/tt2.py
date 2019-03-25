@@ -20,7 +20,7 @@ while 1:
     if (len(data) == 4) and (data[0] != 'Kvantorium-33'):
         id = data[1]
         id = id[:-1]
-        idcheck = id.split("")
+        idcheck = id.split()
         if(idcheck[0] != '9') and (idcheck[1] != 'B'):
             temp = data[len(data) - 1]
 
